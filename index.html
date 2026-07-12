@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <title>Superfon</title>
+</head>
+
+<body class="ui-web">
+
+  <!-- HEADER-->
+  <header class="w-full border-b border-gray-200">
+
+    <div class="top-header hidden md:block border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center justify-between h-16 text-sm">
+
+          <div class="flex items-center gap-6 font-semibold text-gray-800">
+            <a href="#" class="hover:text-orange-600">Mağazalarımız</a>
+            <a href="#" class="hover:text-orange-600">Korporativ satış</a>
+          </div>
+
+          <div class="flex items-center gap-6">
+
+            <a href="#"
+              class="border border-orange-500 rounded-md px-5 py-2 font-semibold hover:bg-orange-500 hover:text-white transition-colors">
+              Kampaniyalar
+            </a>
+
+            <span class="h-6 w-px bg-gray-200"></span>
+
+            <a href="tel:+994512058888"
+              class="flex items-center gap-2 font-semibold text-gray-800 hover:text-orange-600">
+              <i class="fa-solid fa-phone text-gray-500"></i>
+              +994 51 205 88 88
+            </a>
+
+            <span class="h-6 w-px bg-gray-200"></span>
+
+            <div class="relative group">
+              <button class="flex items-center gap-2 font-semibold">
+                <img src="img/az.png" alt="AZ" class="w-6 h-6 rounded-full object-cover">
+                AZ
+                <i class="fa-solid fa-chevron-down text-xs"></i>
+              </button>
+              <div class="absolute right-0 top-full pt-2 w-28 hidden group-hover:block z-50">
+                <div class="bg-white border border-gray-200 rounded-md shadow-lg">
+                  <a href="#" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
+                    <img src="img/ru.png" alt="RU" class="w-6 h-6 rounded-full object-cover">
+                    RU
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <span class="h-6 w-px bg-gray-200"></span>
+
+            <a href="#" class="flex items-center gap-2 hover:text-orange-600">
+              <i class="fa-regular fa-user text-lg"></i>
+              <span class="leading-tight">
+                <span class="block text-xs text-gray-400">Daxil ol</span>
+                <span class="block font-semibold">Hesab</span>
+              </span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-wrapper">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="header flex items-center gap-4 md:gap-6 py-3 md:h-24">
+
+          <div class="mb-left flex items-center gap-3">
+            <button id="mobile-menu-btn" class="mb-nav md:hidden text-2xl text-gray-800">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <a href="#" class="mb-logo flex items-center">
+              <img src="img/logo_new.svg" alt="Superfon" class="h-8 md:h-12">
+            </a>
+          </div>
+
+          <div class="hidden md:block relative group">
+            <button
+              class="flex items-center gap-3 bg-orange-500 text-white font-semibold px-7 py-3 rounded-lg hover:bg-orange-600 transition-colors shrink-0">
+              <i class="fa-solid fa-bars"></i>
+              Kataloq
+            </button>
+            <div id="kataloq-panel"
+              class="absolute left-0 top-full mt-2 w-80 bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden divide-y divide-gray-100 hidden group-hover:block z-50">
+            </div>
+          </div>
+
+          <div class="mb-center hidden md:flex flex-1 relative">
+            <div
+              class="flex items-center w-full border border-gray-300 rounded-lg focus-within:border-orange-500 transition-colors">
+              <input type="text" id="search-input" placeholder="Axtar..."
+                class="flex-1 px-4 py-3 outline-none rounded-lg bg-transparent">
+              <button class="px-4 text-gray-400 hover:text-orange-600">
+                <i class="fa-solid fa-magnifying-glass text-lg"></i>
+              </button>
+            </div>
+            <div id="search-results"
+              class="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-96 overflow-y-auto hidden">
+            </div>
+          </div>
+
+          <div class="mb-user flex items-center gap-4 md:gap-6 ml-auto md:ml-0 text-xl text-gray-800">
+            <a href="muqayise.htm" class="hidden md:block relative hover:text-orange-600">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <span id="compare-count"
+                class="hidden absolute -top-2 -right-2 bg-orange-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+            </a>
+            <a href="istekler.htm" class="hidden md:block relative hover:text-orange-600">
+              <i class="fa-regular fa-heart"></i>
+              <span id="wishlist-count"
+                class="hidden absolute -top-2 -right-2 bg-orange-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+            </a>
+            <a href="#" class="md:hidden"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="sebet.htm" class="flex items-center gap-2 relative hover:text-orange-600">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="cart-count"
+                class="hidden absolute -top-2 left-3 bg-orange-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+              <span class="hidden md:block text-sm leading-tight">
+                <span class="block text-xs text-gray-400">Məbləğ</span>
+                <span class="block font-semibold"><span id="cart-total">0.00</span> ₼</span>
+              </span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="mb-search md:hidden px-4 pb-3">
+        <div
+          class="flex items-center border border-gray-300 rounded-lg focus-within:border-orange-500 transition-colors">
+          <input type="text" placeholder="Axtar..."
+            class="flex-1 px-4 py-2 outline-none rounded-lg bg-transparent text-sm">
+          <button class="px-4 text-gray-400">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden md:hidden"></div>
+
+  <!--MOBILE MENU-->
+  <div id="mobile-menu"
+    class="fixed top-0 left-0 h-full w-80 max-w-[85%] bg-white z-[70] md:hidden overflow-y-auto hidden">
+    <div class="flex items-center justify-between p-4 border-b border-gray-200">
+      <img src="img/logo_new.svg" alt="Superfon" class="h-8">
+      <button id="mobile-close" class="text-2xl text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="mobile-category-list"></div>
+    <div id="mobile-extra-links" class="border-t border-gray-200 py-2"></div>
+  </div>
+
+  <div id="mobile-submenu"
+    class="fixed top-0 left-0 h-full w-80 max-w-[85%] bg-white z-[80] md:hidden overflow-y-auto hidden">
+    <div class="flex items-center gap-3 p-4 border-b border-gray-200">
+      <button id="mobile-back" class="text-xl text-gray-600"><i class="fa-solid fa-arrow-left"></i></button>
+      <h3 id="mobile-submenu-title" class="font-semibold text-slate-900"></h3>
+    </div>
+    <div id="mobile-submenu-list"></div>
+  </div>
+  
+
+
+
+  <section class="max-w-7xl mx-auto px-4 py-4 md:py-6">
+    <div class="flex flex-col md:flex-row gap-4">
+
+      <aside class="hidden md:block md:w-1/5 shrink-0 relative">
+        <ul id="category-menu" class="border border-gray-200 rounded-xl overflow-hidden divide-y divide-gray-100">
+        </ul>
+      </aside>
+
+      <div class="flex-1 min-w-0">
+        <div class="swiper heroSwiper rounded-xl overflow-hidden h-56 sm:h-72 md:h-full">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide bg-gray-100">
+              <img src="img/slider1.jpeg" alt="Slide 1" class="w-full h-full object-cover">
+            </div>
+            <div class="swiper-slide bg-gray-100">
+              <img src="img/slider2.jpeg" alt="Slide 2" class="w-full h-full object-cover">
+            </div>
+            <div class="swiper-slide bg-gray-100">
+              <img src="img/slider3.jpeg" alt="Slide 3" class="w-full h-full object-cover">
+            </div>
+            <div class="swiper-slide bg-gray-100">
+              <img src="img/slider4.jpg" alt="Slide 4" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <aside class="md:w-1/5 shrink-0">
+        <div class="border border-gray-200 rounded-xl p-4 h-full flex flex-col">
+          <h3 class="text-center font-semibold text-gray-800 mb-3">Həftənin təklifləri</h3>
+
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <div class="text-center">
+              <div id="timer-days" class="text-2xl font-bold text-orange-600">00</div>
+              <div class="text-xs text-gray-400">gün</div>
+            </div>
+            <span class="text-gray-200 text-xl">|</span>
+            <div class="text-center">
+              <div id="timer-hours" class="text-2xl font-bold text-orange-600">00</div>
+              <div class="text-xs text-gray-400">saat</div>
+            </div>
+            <span class="text-gray-200 text-xl">|</span>
+            <div class="text-center">
+              <div id="timer-minutes" class="text-2xl font-bold text-orange-600">00</div>
+              <div class="text-xs text-gray-400">dəqiqə</div>
+            </div>
+          </div>
+
+          <div class="flex-1 flex items-center justify-center py-2">
+            <img src="img/qulaqliq.jpg" alt="Qulaqlıq" class="max-h-40 object-contain">
+          </div>
+
+          <p class="text-sm text-gray-700 mb-1">Qulaqlıq TWS Foni FN-TW6 Sound Clear white</p>
+          <p class="text-xl font-bold text-gray-900 mb-3">24.90 ₼</p>
+
+          <button
+            class="flex items-center justify-center gap-2 bg-green-500 text-white font-semibold py-3 rounded-lg hover:bg-green-600 transition-colors">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Səbətə əlavə et
+          </button>
+          <a href="#" class="block text-center text-sm text-gray-500 hover:text-orange-600 mt-3">Bütün təkliflərə
+            bax</a>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+
+  
+  <section class="max-w-7xl mx-auto px-4 py-4 md:py-6">
+    <div id="features-container"
+      class="flex justify-between items-stretch bg-slate-50 rounded-2xl divide-x divide-gray-200">
+    </div>
+  </section>
+
+
+  
+  <section class="max-w-7xl mx-auto px-4 py-6 md:py-10">
+    <div class="flex items-center justify-between border-b border-gray-200 pb-4 mb-6">
+      <h2 class="text-xl md:text-2xl font-bold text-slate-900">Yeniliklər</h2>
+      <a href="#"
+        class="flex items-center gap-2 text-blue-600 font-medium hover:gap-3 transition-all text-sm md:text-base">
+        Hamısına bax <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="swiper newProductsSwiper">
+      <div class="swiper-wrapper" id="new-products"></div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 py-6 md:py-10">
+    
+    <div id="brands-container"
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 bg-slate-50 rounded-2xl p-6 md:p-10">
+    </div>
+  </section>
+
+  
+  <section class="max-w-7xl mx-auto px-4 py-6 md:py-10">
+    <div class="flex items-center justify-between border-b border-gray-200 pb-4 mb-6">
+      <h2 class="text-xl md:text-2xl font-bold text-slate-900">Ən çox satılanlar</h2>
+      <a href="#"
+        class="flex items-center gap-2 text-blue-600 font-medium hover:gap-3 transition-all text-sm md:text-base">
+        Hamısına bax <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="swiper bestSellersSwiper">
+      <div class="swiper-wrapper" id="best-sellers"></div>
+    </div>
+  </section>
+
+  
+  <section class="max-w-7xl mx-auto px-4 py-10 md:py-14">
+    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-8 md:mb-12">Superfon TV</h2>
+    <div class="swiper superfonTVSwiper">
+      <div class="swiper-wrapper" id="superfon-tv-container"></div>
+    </div>
+  </section>
+
+  <!--FOOTER-->
+  <footer class="bg-slate-50 border-t border-gray-200 mt-10">
+    <div class="max-w-7xl mx-auto px-4 py-10 md:py-14">
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
+
+        <div>
+          <img src="img/logo_new.svg" alt="Superfon" class="h-9 mb-6">
+          <div class="flex items-center gap-3 mb-3 text-2xl text-slate-800">
+            <a href="tel:+994512058888" class="hover:text-orange-600"><i class="fa-solid fa-phone"></i></a>
+            <a href="#" class="hover:text-green-600"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+          <a href="tel:+994512058888"
+            class="text-lg md:text-xl font-bold text-slate-900 hover:text-orange-600 whitespace-nowrap">+994 51 205 88
+            88</a>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-slate-900 mb-4">Şirkət</h3>
+          <ul id="footer-company" class="space-y-3 text-gray-600"></ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-slate-900 mb-4">Müştəri üçün</h3>
+          <ul id="footer-customer" class="space-y-3 text-gray-600"></ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-slate-900 mb-4">Bizi izləyin</h3>
+          <div id="footer-social" class="flex items-center gap-3 mb-6"></div>
+          <h4 class="font-bold text-slate-900">Yeniliklərdən xəbər alın</h4>
+          <p class="text-sm text-gray-500 mb-3">Online bültenimizə abunə ol</p>
+          <div class="flex border border-gray-300 rounded-lg overflow-hidden max-w-sm">
+            <input type="email" placeholder="Email ünvanınız" class="flex-1 px-4 py-2.5 outline-none text-sm">
+            <button class="bg-slate-900 text-white px-5 text-sm font-medium hover:bg-slate-800 transition-colors">Abunə
+              ol</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="footer-tags"
+        class="flex flex-wrap gap-x-4 gap-y-2 border-t border-gray-200 mt-10 pt-8 text-sm text-gray-600"></div>
+
+    </div>
+
+    <div class="border-t border-gray-200">
+      <div
+        class="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+        <p class="text-center md:text-left">© 2019-2026 Superfon. Bütün hüquqlar qorunur.</p>
+        <div class="flex items-center gap-3">
+          <img src="img/visa.png" alt="Visa" class="h-8 object-contain">
+          <img src="img/mastercard.png" alt="MasterCard" class="h-8 object-contain">
+          <img src="img/maestro.png" alt="Maestro" class="h-8 object-contain">
+        </div>
+        <p class="text-center md:text-right">Sayt <span class="font-bold text-slate-800">mobius</span> tərəfindən
+          hazırlandı
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--CHAT-->
+  <button id="chat-btn"
+    class="fixed bottom-6 right-6 w-14 h-14 flex items-center justify-center bg-orange-500 rounded-full shadow-lg hover:bg-orange-600 hover:scale-110 transition-all z-50 overflow-hidden">
+    <img src="img/livechat-default-icon.png" alt="Chat" class="w-8 h-8 object-contain">
+  </button>
+
+  <div id="chat-panel"
+    class="fixed bottom-24 right-6 w-80 max-w-[90%] bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 hidden overflow-hidden">
+    <div class="flex items-center gap-3 p-4 border-b border-gray-100">
+      <div class="w-10 h-10 flex items-center justify-center bg-orange-500 rounded-full shrink-0 overflow-hidden">
+        <img src="img/livechat-default-icon.png" alt="Superfon" class="w-6 h-6 object-contain">
+      </div>
+      <div class="flex-1 min-w-0">
+        <h4 class="font-bold text-slate-900 text-sm truncate">MƏLUMAT MƏRKƏZİ</h4>
+        <p class="text-xs text-gray-500">Bir qədər əvvəl aktiv</p>
+      </div>
+      <button id="chat-close" class="text-gray-400 hover:text-gray-600 text-xl"><i
+          class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="p-5">
+      <p class="text-slate-700 mb-4">Zəhmət olmasa söhbətə başlamazdan əvvəl özünüzü təqdim edin</p>
+
+      <label class="block text-sm font-semibold text-slate-800 mb-1">Adınız və Soyadınız: <span
+          class="text-red-500">*</span></label>
+      <input type="text" placeholder="John Doe"
+        class="w-full border border-gray-300 rounded-lg px-4 py-2.5 mb-4 outline-none focus:border-blue-500">
+
+      <label class="block text-sm font-semibold text-slate-800 mb-1">Email ünvanınız: <span
+          class="text-red-500">*</span></label>
+      <input type="email" placeholder="example@domain.com"
+        class="w-full border border-gray-300 rounded-lg px-4 py-2.5 mb-4 outline-none focus:border-blue-500">
+
+      <button class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-colors">
+        Çata başlayın
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.js"></script>
+  <script>
+    const heroSwiper = new Swiper('.heroSwiper', {
+      loop: true,
+      autoplay: { delay: 4000 },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    });
+  </script>
+
+  <script src="index.js"></script>
+
+  <!--MOBILE ALT -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex md:hidden z-50">
+    <a href="index.htm" class="flex-1 flex flex-col items-center justify-center gap-1 py-2 text-orange-600">
+      <i class="fa-solid fa-house text-lg"></i>
+      <span class="text-xs">Əsas səhifə</span>
+    </a>
+    <a href="istekler.htm"
+      class="flex-1 flex flex-col items-center justify-center gap-1 py-2 text-gray-600 hover:text-orange-600 relative">
+      <i class="fa-regular fa-heart text-lg"></i>
+      <span id="mobile-wishlist-count"
+        class="hidden absolute top-1 right-1/4 bg-orange-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">0</span>
+      <span class="text-xs">Ürəyin istəyən</span>
+    </a>
+    <a href="muqayise.htm"
+      class="flex-1 flex flex-col items-center justify-center gap-1 py-2 text-gray-600 hover:text-orange-600 relative">
+      <i class="fa-solid fa-scale-balanced text-lg"></i>
+      <span id="mobile-compare-count"
+        class="hidden absolute top-1 right-1/4 bg-orange-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">0</span>
+      <span class="text-xs">Müqayisə</span>
+    </a>
+  </nav>
+
+
+</body>
+
+</html>
