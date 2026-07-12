@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Səbət - Superfon</title>
+</head>
+
+<body class="ui-web">
+
+  <header class="w-full border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
+      <a href="index.htm" class="flex items-center">
+        <img src="img/logo_new.svg" alt="Superfon" class="h-8 md:h-10">
+      </a>
+      <a href="index.htm" class="flex items-center gap-2 text-gray-700 hover:text-orange-600">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span class="hidden md:inline">Ana səhifə</span>
+      </a>
+    </div>
+  </header>
+
+  
+  <main class="max-w-7xl mx-auto px-4 py-8">
+    <p class="text-sm mb-2">
+      <a href="index.htm" class="text-orange-600 hover:underline">Superfon</a>
+      <span class="text-gray-400">/ Səbət</span>
+    </p>
+
+    <h1 class="text-2xl md:text-3xl font-bold text-slate-900 border-b border-gray-200 pb-4 mb-8">Səbət</h1>
+
+    <p id="cart-empty" class="hidden text-gray-500 text-center py-20">
+      Səbətiniz boşdur.
+      <a href="index.htm" class="text-orange-600 hover:underline">Alış-verişə başla</a>
+    </p>
+
+    <div id="cart-content" class="flex flex-col lg:flex-row gap-6">
+      <div id="cart-items" class="flex-1 flex flex-col gap-4"></div>
+
+      <div class="lg:w-80 shrink-0">
+        <div class="border border-gray-200 rounded-xl p-6 sticky top-4">
+          <h3 class="font-bold text-slate-900 mb-4">Sifariş</h3>
+          <div class="flex justify-between text-gray-600 mb-2">
+            <span>Məhsul sayı</span>
+            <span id="summary-count">0</span>
+          </div>
+          <div class="flex justify-between font-bold text-lg text-slate-900 border-t border-gray-200 pt-3 mt-3">
+            <span>Cəmi</span>
+            <span><span id="summary-total">0.00</span> ₼</span>
+          </div>
+          <button
+            class="w-full mt-4 bg-green-500 text-white font-semibold py-3 rounded-lg hover:bg-green-600 transition-colors">
+            Sifarişi tamamla
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="index.js"></script>
+  <script src="sebet.js"></script>
+</body>
+
+</html>
